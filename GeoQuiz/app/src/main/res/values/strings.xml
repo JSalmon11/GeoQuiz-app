@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GeoQuiz</string>
+    <string name="botton_true">True</string>
+    <string name="botton_false">False</string>
+</resources>
