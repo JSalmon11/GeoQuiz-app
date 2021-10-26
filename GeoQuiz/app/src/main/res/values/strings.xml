@@ -2,4 +2,9 @@
     <string name="app_name">GeoQuiz</string>
     <string name="botton_true">True</string>
     <string name="botton_false">False</string>
+    <string name="verdadero_toast">Verdadero</string>
+    <string name="falso_tost">Falso</string>
+    <string name="pregunta1">El océano pacífico es más grande que el océano Atlántico</string>
+    <string name="pregunta2">El canal de Suez conecta el mar rojo con el océano Índico</string>
+    <string name="pregunta3">El río Amazona es el río más largo del continente americano</string>
 </resources>
