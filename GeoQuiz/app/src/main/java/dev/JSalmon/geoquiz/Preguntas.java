@@ -1,27 +1,27 @@
 package dev.JSalmon.geoquiz;
 
 public class Preguntas {
-    private int textResId;
-    private boolean respuesta;
+    private int mtextResId;
+    private boolean mAnswerTrue;
 
     public Preguntas (int TextResId, boolean Respuesta) {
-        textResId = TextResId;
-        respuesta = Respuesta;
+        mtextResId = TextResId;
+        mAnswerTrue = Respuesta;
     }
 
     public int getTextResId () {
-        return textResId;
+        return mtextResId;
     }
 
     public void setTextResId (int TextResId) {
-        this.textResId = TextResId;
+        this.mtextResId = TextResId;
     }
 
-    public boolean isRespuesta () {
-        return respuesta;
+    public boolean isAnswerTrue () {
+        return mAnswerTrue;
     }
 
-    public void setRespuesta (boolean Respuesta) {
-        respuesta = Respuesta;
+    public void setAnswerTrue (boolean Respuesta) {
+        mAnswerTrue = Respuesta;
     }
 }// Preguntas

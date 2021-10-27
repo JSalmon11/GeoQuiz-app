@@ -15,6 +15,12 @@
         tools:layout_editor_absoluteY="142dp">
 
         <TextView
+            android:id="@+id/textPuntos"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:textAlignment="textEnd" />
+
+        <TextView
             android:id="@+id/textPreguntas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -63,6 +69,7 @@
             android:textColor="@android:color/tab_indicator_text"
             app:iconTint="#00FFFFFF"
             app:rippleColor="#00FFFFFF" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

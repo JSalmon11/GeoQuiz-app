@@ -1,6 +1,7 @@
 package dev.JSalmon.geoquiz;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -11,6 +12,8 @@ public class MainActivity extends AppCompatActivity {
     private Button mTrueButton;
     private Button mFalseButton;
     private Button button_swipe;
+    private TextView puntosTextView;
+    private int puntos=0;
 
     private TextView preguntasTextView;
     private Preguntas[] arrayPreguntas=new Preguntas[]{
@@ -20,23 +23,57 @@ public class MainActivity extends AppCompatActivity {
     };
     private int currentIndex=0;
 
+    private void updatePregunta(){
+        int pregunta=arrayPreguntas [currentIndex].getTextResId();
+        preguntasTextView.setText(pregunta);
+    }
+
+    private void updatePuntos(){
+        puntosTextView.setText(Integer.toString(puntos));
+    }
+
+    private void checkAnswer (boolean userPressedTrue){
+        boolean answerIsTrue=arrayPreguntas [currentIndex].isAnswerTrue();
+
+        int messageResId=0;
+
+        if (userPressedTrue==answerIsTrue){
+            messageResId=R.string.correct_toast;
+            ++puntos;
+            updatePuntos();
+        }else{
+            messageResId=R.string.incorrect_tost;
+        }
+        Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show();
+        updatePregunta();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //updatePuntos();
 
         preguntasTextView= findViewById(R.id.textPreguntas);
         updatePregunta();
 
         mTrueButton= findViewById(R.id.true_button);
-        mTrueButton.setOnClickListener(v -> Toast.makeText(MainActivity.this,
-        R.string.verdadero_toast,
-        Toast.LENGTH_SHORT).show());
+        mTrueButton.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick (View v) {
+                checkAnswer(true);
+            }
+        });
 
         mFalseButton= findViewById(R.id.false_button);
-        mFalseButton.setOnClickListener(v -> Toast.makeText(MainActivity.this,
-        R.string.falso_tost,
-        Toast.LENGTH_SHORT).show());
+        mFalseButton.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick (View v) {
+                checkAnswer(false);
+            }
+        });
 
         button_swipe=findViewById(R.id.button_Swipe);
         button_swipe.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this){
@@ -46,13 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 updatePregunta();
             }
         });
-        updatePregunta();
 
     }// onCreate()
-
-    private void updatePregunta(){
-        int pregunta=arrayPreguntas [currentIndex].getTextResId();
-        preguntasTextView.setText(pregunta);
-    }
 
 }// MainActivity
