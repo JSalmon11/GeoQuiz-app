@@ -25,7 +25,6 @@
             android:orientation="horizontal">
 
             <Button
-
                 android:id="@+id/true_button"
                 style="Widget.Material.Button"
                 android:layout_width="wrap_content"
