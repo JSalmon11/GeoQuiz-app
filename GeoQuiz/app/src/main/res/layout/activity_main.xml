@@ -30,7 +30,6 @@
             android:orientation="horizontal">
 
             <Button
-
                 android:id="@+id/true_button"
                 style="Widget.Material.Button"
                 android:layout_width="wrap_content"
@@ -39,7 +38,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="#4CAF50"
                 android:text="@string/botton_true"
-                android:textColor="#000000" />
+                android:textColor="#263238" />
 
             <Button
                 android:id="@+id/false_button"
@@ -50,7 +49,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="#4CAF50"
                 android:text="@string/botton_false"
-                android:textColor="#0C0C0C" />
+                android:textColor="#263238" />
 
         </LinearLayout>
 

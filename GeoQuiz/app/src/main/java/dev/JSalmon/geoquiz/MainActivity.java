@@ -2,15 +2,14 @@ package dev.JSalmon.geoquiz;
 
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-//VOY POR LA PAGINA 64 DEL NERDS 2
+
 public class MainActivity extends AppCompatActivity {
     private Button mTrueButton;
     private Button mFalseButton;
-<<<<<<< HEAD
-=======
     private Button button_swipe;
 
     private TextView preguntasTextView;
@@ -20,19 +19,15 @@ public class MainActivity extends AppCompatActivity {
             new Preguntas(R.string.pregunta3, true),
     };
     private int currentIndex=0;
->>>>>>> 797ede0 (commit 27/10/2021)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-<<<<<<< HEAD
-=======
         preguntasTextView= findViewById(R.id.textPreguntas);
         updatePregunta();
 
->>>>>>> 797ede0 (commit 27/10/2021)
         mTrueButton= findViewById(R.id.true_button);
         mTrueButton.setOnClickListener(v -> Toast.makeText(MainActivity.this,
         R.string.verdadero_toast,
