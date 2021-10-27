@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,15 +10,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="142dp">
 
         <TextView
             android:id="@+id/textPreguntas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="roboto"
             android:padding="24dp"
-            android:textAlignment="textStart"
-            android:textSize="14sp" />
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -48,6 +53,17 @@
                 android:textColor="#0C0C0C" />
 
         </LinearLayout>
+
+        <Button
+            android:id="@+id/button_Swipe"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="#00FFFFFF"
+            android:text="@string/botton_swipe"
+            android:textAlignment="center"
+            android:textColor="@android:color/tab_indicator_text"
+            app:iconTint="#00FFFFFF"
+            app:rippleColor="#00FFFFFF" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
