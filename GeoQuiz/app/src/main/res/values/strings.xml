@@ -2,6 +2,7 @@
     <string name="app_name">GeoQuiz</string>
     <string name="botton_true">Verdadero</string>
     <string name="botton_false">Falso</string>
+    <string name="botton_swipe">◄ Desliza para pasar la pregunta</string>
     <string name="verdadero_toast">Verdadero</string>
     <string name="falso_tost">Falso</string>
     <string name="pregunta1">El océano pacífico es más grande que el océano Atlántico</string>
