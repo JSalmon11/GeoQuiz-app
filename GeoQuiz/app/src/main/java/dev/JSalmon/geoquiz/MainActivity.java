@@ -97,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
             public void onSwipeLeft() {
                 currentIndex=(currentIndex+1) % arrayPreguntas.length;
                 updatePregunta();
+                finDisplay();
             }
         });
 
