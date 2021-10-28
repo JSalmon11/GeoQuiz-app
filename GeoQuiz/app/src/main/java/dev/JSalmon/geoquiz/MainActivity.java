@@ -1,5 +1,6 @@
 package dev.JSalmon.geoquiz;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView puntosTextView;
     private int puntos=0;
 
+    public static final String EXTRA_MESSAGE = "dev.JSalmon.geoquiz.MESSAGE";
+
     private TextView preguntasTextView;
     private Preguntas[] arrayPreguntas=new Preguntas[]{
             new Preguntas(R.string.pregunta1, true),
@@ -22,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
             new Preguntas(R.string.pregunta3, true),
     };
     private int currentIndex=0;
+    private Intent finDisplay;
 
     private void updatePregunta(){
         int pregunta=arrayPreguntas [currentIndex].getTextResId();
@@ -33,17 +37,27 @@ public class MainActivity extends AppCompatActivity {
         puntosTextView.setText("Puntos: "+Integer.toString(puntos));
     }
 
+    private void finDisplay(){
+        if (currentIndex == arrayPreguntas.length-1){
+            Intent intent = new Intent(this, finDisplay.class);
+            String message = Integer.toString(puntos);
+            intent.putExtra(EXTRA_MESSAGE, message);
+            startActivity(intent);
+        }
+    }
+
     private void checkAnswer (boolean userPressedTrue){
         boolean answerIsTrue=arrayPreguntas [currentIndex].isAnswerTrue();
-
         int messageResId=0;
 
         if (userPressedTrue==answerIsTrue){
             ++puntos;
             updatePuntos();
             messageResId=R.string.correct_toast;
+            finDisplay();
         }else{
             messageResId=R.string.incorrect_tost;
+            finDisplay();
         }
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show();
         currentIndex=(currentIndex+1) % arrayPreguntas.length;

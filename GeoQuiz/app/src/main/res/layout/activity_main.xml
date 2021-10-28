@@ -46,7 +46,7 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:backgroundTint="#4CAF50"
-                android:text="@string/botton_true"
+                android:text="@string/button_true"
                 android:textColor="#263238" />
 
             <Button
@@ -57,7 +57,7 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:backgroundTint="#4CAF50"
-                android:text="@string/botton_false"
+                android:text="@string/button_false"
                 android:textColor="#263238" />
 
         </LinearLayout>
@@ -67,7 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:background="#00FFFFFF"
-            android:text="@string/botton_swipe"
+            android:text="@string/button_swipe"
             android:textAlignment="center"
             android:textColor="@android:color/tab_indicator_text"
             app:iconTint="#00FFFFFF"
