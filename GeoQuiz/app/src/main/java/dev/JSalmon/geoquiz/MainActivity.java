@@ -29,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updatePuntos(){
-        puntosTextView.setText(Integer.toString(puntos));
+        puntosTextView = findViewById(R.id.textPuntos);
+        puntosTextView.setText("Puntos: "+Integer.toString(puntos));
     }
 
     private void checkAnswer (boolean userPressedTrue){
@@ -38,13 +39,14 @@ public class MainActivity extends AppCompatActivity {
         int messageResId=0;
 
         if (userPressedTrue==answerIsTrue){
-            messageResId=R.string.correct_toast;
             ++puntos;
             updatePuntos();
+            messageResId=R.string.correct_toast;
         }else{
             messageResId=R.string.incorrect_tost;
         }
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show();
+        currentIndex=(currentIndex+1) % arrayPreguntas.length;
         updatePregunta();
     }
 
@@ -52,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //updatePuntos();
+        updatePuntos();
 
         preguntasTextView= findViewById(R.id.textPreguntas);
         updatePregunta();
