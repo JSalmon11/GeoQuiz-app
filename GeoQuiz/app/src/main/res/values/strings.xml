@@ -11,4 +11,8 @@
     <string name="string_puntos">Puntos: </string>
     <string name="string_FIN">FIN: Ya no hay más preguntas</string>
     <string name="button_restart">RESTART</string>
+    <string name="warning_text">¿Estás seguro que quieres hacer eso?</string>
+    <string name="show_answer_button">Respuesta</string>
+    <string name="cheat_button">Trampa!</string>
+    <string name="judgment_toast">Tramposo</string>
 </resources>

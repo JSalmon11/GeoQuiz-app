@@ -13,8 +13,11 @@ public class MainActivity extends AppCompatActivity {
     private Button mTrueButton;
     private Button mFalseButton;
     private Button button_swipe;
+    private Button mCheatButton;
     private TextView puntosTextView;
     private int puntos=0;
+    private static final String KEY_INDEX = "index";
+    private static final String KEY_PUNTOS = "puntos";
 
     public static final String EXTRA_MESSAGE = "dev.JSalmon.geoquiz.MESSAGE";
 
@@ -70,8 +73,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         updatePuntos();
 
+        if (savedInstanceState != null){
+            currentIndex=savedInstanceState.getInt(KEY_INDEX, 0);
+            puntos=savedInstanceState.getInt(KEY_PUNTOS, 0);
+            updatePuntos();
+        }
+
         preguntasTextView= findViewById(R.id.textPreguntas);
         updatePregunta();
+
+        mCheatButton=findViewById(R.id.cheat_button);
+        mCheatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+                Intent i =new Intent(MainActivity.this, CheatActivity.class);
+                startActivity(i);
+                //NERD 5 PAGINA 118
+            }
+        });
 
         mTrueButton= findViewById(R.id.true_button);
         mTrueButton.setOnClickListener(new View.OnClickListener(){
@@ -102,5 +121,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }// onCreate()
+
+    @Override
+    public void onSaveInstanceState (Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putInt(KEY_INDEX, currentIndex);
+        savedInstanceState.putInt(KEY_PUNTOS, puntos);
+    }// onSaveInstanceState()
 
 }// MainActivity
