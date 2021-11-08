@@ -1,5 +1,6 @@
 package dev.JSalmon.geoquiz;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     private int puntos=0;
     private static final String KEY_INDEX = "index";
     private static final String KEY_PUNTOS = "puntos";
+    private static final int CODE_CHEAT = 0;
+    private boolean isCheater;
 
     public static final String EXTRA_MESSAGE = "dev.JSalmon.geoquiz.MESSAGE";
 
@@ -53,17 +56,22 @@ public class MainActivity extends AppCompatActivity {
         boolean answerIsTrue=arrayPreguntas [currentIndex].isAnswerTrue();
         int messageResId=0;
 
-        if (userPressedTrue==answerIsTrue){
-            ++puntos;
-            updatePuntos();
-            messageResId=R.string.correct_toast;
+        if (isCheater) {
+            messageResId=R.string.judgment_toast;
             finDisplay();
         }else{
-            messageResId=R.string.incorrect_tost;
-            finDisplay();
+            if (userPressedTrue == answerIsTrue) {
+                ++puntos;
+                updatePuntos();
+                messageResId = R.string.correct_toast;
+                finDisplay();
+            } else {
+                messageResId = R.string.incorrect_tost;
+                finDisplay();
+            }
         }
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show();
-        currentIndex=(currentIndex+1) % arrayPreguntas.length;
+        currentIndex = (currentIndex + 1) % arrayPreguntas.length;
         updatePregunta();
     }
 
@@ -86,9 +94,9 @@ public class MainActivity extends AppCompatActivity {
         mCheatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
-                Intent i =new Intent(MainActivity.this, CheatActivity.class);
-                startActivity(i);
-                //NERD 5 PAGINA 118
+                boolean answerIsTrue = arrayPreguntas[currentIndex].isAnswerTrue();
+                Intent i=CheatActivity.newIntent(MainActivity.this, answerIsTrue);
+                startActivityForResult(i, CODE_CHEAT);
             }
         });
 
@@ -98,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick (View v) {
                 checkAnswer(true);
+                isCheater=false;
             }
         });
 
@@ -107,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick (View v) {
                 checkAnswer(false);
+                isCheater=false;
             }
         });
 
@@ -115,12 +125,28 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSwipeLeft() {
                 currentIndex=(currentIndex+1) % arrayPreguntas.length;
+                isCheater=false;
                 updatePregunta();
                 finDisplay();
             }
         });
 
     }// onCreate()
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode != Activity.RESULT_OK) {
+            return;
+        }
+
+        if (requestCode == CODE_CHEAT) {
+            if (data == null) {
+                return;
+            }
+            isCheater = CheatActivity.wasAnswerShown(data);
+        }
+    }
 
     @Override
     public void onSaveInstanceState (Bundle savedInstanceState) {
