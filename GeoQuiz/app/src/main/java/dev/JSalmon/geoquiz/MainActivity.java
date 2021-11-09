@@ -44,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void finDisplay(){
-        if (currentIndex == arrayPreguntas.length-1){
+        int indexIf = currentIndex;
+        if (++indexIf == arrayPreguntas.length){
             Intent intent = new Intent(this, finDisplay.class);
             String message = Integer.toString(puntos);
             intent.putExtra(EXTRA_MESSAGE, message);
@@ -124,10 +125,10 @@ public class MainActivity extends AppCompatActivity {
         button_swipe.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this){
             @Override
             public void onSwipeLeft() {
+                finDisplay();
                 currentIndex=(currentIndex+1) % arrayPreguntas.length;
                 isCheater=false;
                 updatePregunta();
-                finDisplay();
             }
         });
 
