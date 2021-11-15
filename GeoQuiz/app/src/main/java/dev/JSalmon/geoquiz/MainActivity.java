@@ -29,9 +29,9 @@ public class MainActivity extends AppCompatActivity {
             new Preguntas(R.string.pregunta1, true),
             new Preguntas(R.string.pregunta2, false),
             new Preguntas(R.string.pregunta3, true),
+            new Preguntas(R.string.pregunta4, true),
     };
     private int currentIndex=0;
-    private Intent finDisplay;
 
     private void updatePregunta(){
         int pregunta=arrayPreguntas [currentIndex].getTextResId();
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void updatePuntos(){
         puntosTextView = findViewById(R.id.textPuntos);
-        puntosTextView.setText("Puntos: "+Integer.toString(puntos));
+        puntosTextView.setText(Integer.toString(puntos));
     }
 
     private void finDisplay(){

@@ -26,7 +26,7 @@ public class finDisplay extends AppCompatActivity {
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
         // Capture the layout's TextView and set the string as its text
         TextView textView = findViewById(R.id.textPuntuación);
-        textView.setText("Puntuación final: "+message);
+        textView.setText(message);
 
         buttonRestart= findViewById(R.id.restart_button);
         buttonRestart.setOnClickListener(new View.OnClickListener(){

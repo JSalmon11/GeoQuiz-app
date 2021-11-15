@@ -8,11 +8,13 @@
     <string name="pregunta1">El océano pacífico es más grande que el océano Atlántico</string>
     <string name="pregunta2">El canal de Suez conecta el mar rojo con el océano Índico</string>
     <string name="pregunta3">El río Amazona es el río más largo del continente americano</string>
+    <string name="pregunta4">El río Tajo es el más largo de la península Ibérica</string>
     <string name="string_puntos">Puntos: </string>
     <string name="string_FIN">FIN: Ya no hay más preguntas</string>
-    <string name="button_restart">RESTART</string>
+    <string name="button_restart">REINICIAR</string>
     <string name="warning_text">¿Estás seguro que quieres hacer eso?</string>
     <string name="show_answer_button">Respuesta</string>
     <string name="cheat_button">Trampa!</string>
     <string name="judgment_toast">Tramposo</string>
+    <string name="finalPuntos">Puntuación final: </string>
 </resources>
