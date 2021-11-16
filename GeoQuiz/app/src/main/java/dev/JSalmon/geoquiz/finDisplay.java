@@ -15,7 +15,7 @@ public class finDisplay extends AppCompatActivity {
     public void restartApp(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-    }
+    }// restartApp()
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class finDisplay extends AppCompatActivity {
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
         // Capture the layout's TextView and set the string as its text
         TextView textView = findViewById(R.id.textPuntuación);
-        textView.setText(message);
+        textView.setText(getResources().getString(R.string.finalPuntos)+" "+message);
 
         buttonRestart= findViewById(R.id.restart_button);
         buttonRestart.setOnClickListener(new View.OnClickListener(){
@@ -36,5 +36,5 @@ public class finDisplay extends AppCompatActivity {
                 restartApp();
             }
         });
-    }
-}
+    }// onCreate()
+}// finDisplay

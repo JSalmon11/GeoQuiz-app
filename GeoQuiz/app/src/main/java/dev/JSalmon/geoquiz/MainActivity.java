@@ -36,12 +36,12 @@ public class MainActivity extends AppCompatActivity {
     private void updatePregunta(){
         int pregunta=arrayPreguntas [currentIndex].getTextResId();
         preguntasTextView.setText(pregunta);
-    }
+    }// updatePregunta()
 
     private void updatePuntos(){
         puntosTextView = findViewById(R.id.textPuntos);
-        puntosTextView.setText(Integer.toString(puntos));
-    }
+        puntosTextView.setText(getResources().getString(R.string.string_puntos)+" "+Integer.toString(puntos));
+    }// updatePuntos()
 
     private void finDisplay(){
         int indexIf = currentIndex;
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra(EXTRA_MESSAGE, message);
             startActivity(intent);
         }
-    }
+    }// finDisplay()
 
     private void checkAnswer (boolean userPressedTrue){
         boolean answerIsTrue=arrayPreguntas [currentIndex].isAnswerTrue();
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show();
         currentIndex = (currentIndex + 1) % arrayPreguntas.length;
         updatePregunta();
-    }
+    }// checkAnswer()
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 boolean answerIsTrue = arrayPreguntas[currentIndex].isAnswerTrue();
                 Intent i=CheatActivity.newIntent(MainActivity.this, answerIsTrue);
                 startActivityForResult(i, CODE_CHEAT);
-            }
+            }// onClick()
         });
 
         mTrueButton= findViewById(R.id.true_button);
@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick (View v) {
                 checkAnswer(true);
                 isCheater=false;
-            }
+            }// onClick()
         });
 
         mFalseButton= findViewById(R.id.false_button);
@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick (View v) {
                 checkAnswer(false);
                 isCheater=false;
-            }
+            }// onClick()
         });
 
         button_swipe=findViewById(R.id.button_Swipe);
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
                 currentIndex=(currentIndex+1) % arrayPreguntas.length;
                 isCheater=false;
                 updatePregunta();
-            }
+            }// onSwipeLeft()
         });
 
     }// onCreate()
@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
             }
             isCheater = CheatActivity.wasAnswerShown(data);
         }
-    }
+    }// onActivityResult()
 
     @Override
     public void onSaveInstanceState (Bundle savedInstanceState) {

@@ -18,11 +18,11 @@ public class CheatActivity extends AppCompatActivity {
         Intent i = new Intent(packageContext, CheatActivity.class);
         i.putExtra(EXTRA_ANSWER_ISTRUE, answerIsTrue);
         return i;
-    }
+    }// newIntent()
 
     public static boolean wasAnswerShown(Intent result) {
         return result.getBooleanExtra(EXTRA_ANSWER_SHOWN, false);
-    }
+    }// wasAnswerShown()
 
     private TextView mAnswerTextView;
     private Button mShowAnswer;
@@ -48,7 +48,7 @@ public class CheatActivity extends AppCompatActivity {
                 setAnswerShownResult(true);
             }
         });
-    }
+    }// onCreate()
 
     private void setAnswerShownResult (boolean isAnswerShown) {
         Intent data =new Intent();
