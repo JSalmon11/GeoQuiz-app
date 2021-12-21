@@ -3,6 +3,7 @@
     <string name="button_true">True</string>
     <string name="button_false">False</string>
     <string name="button_swipe">◄ Swipe for the next question</string>
+    <string name="button_ranking">RANKING</string>
     <string name="correct_toast">CORRECT</string>
     <string name="incorrect_tost">INCORRECT</string>
     <string name="pregunta1">The Pacific Ocean is bigger than the Atlantic Ocean</string>
