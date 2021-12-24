@@ -3,17 +3,10 @@ package dev.JSalmon.geoquiz;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 
 public class finDisplay extends AppCompatActivity {
     private Button buttonRestart;
@@ -36,22 +29,17 @@ public class finDisplay extends AppCompatActivity {
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
         // Capture the layout's TextView and set the string as its text
         puntuacionTextView = findViewById(R.id.textPuntuación);
-        puntuacionTextView.setText(getResources().getString(R.string.finalPuntos)+" "+message);
+        int puntuacion = Integer.parseInt(message);
+        puntuacionTextView.setText(getResources().getString(R.string.finalPuntos)+" "+puntuacion);
 
-
-        File f = new File("/storage/emulated/files/Ranking.dat");
-        String ruta = f.getAbsolutePath();
-        if (ruta != null) {
-            Log.i(":::TAG:", ruta);
-        }
-        FileOutputStream fos;
-        try {
-            fos = new FileOutputStream(f);
-            fos.write(Integer.parseInt(message));
-            fos.flush();
-            fos.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+        boolean puntuacionSuperada=false;
+        int puntuacionMax = 0;
+        for (int i = 0; i < 10; ++i) {
+            if (TaskTablaRanking.prefs.getPuntuacion(i + "") < puntuacion) {
+                puntuacionMax=TaskTablaRanking.prefs.getPuntuacion(i + "");
+                TaskTablaRanking.prefs.setPuntuacion(i + "", puntuacion);
+                puntuacion=puntuacionMax;
+            }
         }
 
         buttonRanking= findViewById(R.id.buttonRanking);
