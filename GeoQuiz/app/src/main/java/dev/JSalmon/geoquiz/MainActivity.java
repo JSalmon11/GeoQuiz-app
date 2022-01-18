@@ -30,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
             new Preguntas(R.string.pregunta2, false),
             new Preguntas(R.string.pregunta3, true),
             new Preguntas(R.string.pregunta4, true),
+            new Preguntas(R.string.pregunta5, false),
+            new Preguntas(R.string.pregunta6, true),
+            new Preguntas(R.string.pregunta7, false),
     };
     private int currentIndex=0;
 
