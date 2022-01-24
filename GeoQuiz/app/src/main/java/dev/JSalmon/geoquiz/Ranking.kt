@@ -11,7 +11,7 @@ class Ranking : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ranking)
 
-        var ranking: TextView = findViewById(R.id.rankingFile)
+        val ranking: TextView = findViewById(R.id.rankingFile)
         var text:String="\n\nTOP 10\n"
         for (i in 0 until 10) {
             if(prefs.getPuntuacion(i.toString())==-1){

@@ -10,6 +10,9 @@
     <string name="pregunta2">El canal de Suez conecta el mar rojo con el océano Índico</string>
     <string name="pregunta3">El río Amazona es el río más largo del continente americano</string>
     <string name="pregunta4">El río Tajo es el más largo de la península Ibérica</string>
+    <string name="pregunta5">China es el país más grande del mundo</string>
+    <string name="pregunta6">El vaticano es el país más pequeño del mundo</string>
+    <string name="pregunta7">El Teide es el monte más alto de la península ibérica</string>
     <string name="string_puntos">Puntos: </string>
     <string name="string_FIN">FIN: Ya no hay más preguntas</string>
     <string name="button_restart">REINICIAR</string>

@@ -18,4 +18,7 @@
     <string name="cheat_button">Cheat!</string>
     <string name="judgment_toast">Cheater</string>
     <string name="finalPuntos">Final score: </string>
+    <string name="pregunta5">"China is the largest country in the world "</string>
+    <string name="pregunta6">The Vatican is the smallest country in the world</string>
+    <string name="pregunta7">Mount Teide is the highest mountain in the Iberian Peninsula</string>
 </resources>
