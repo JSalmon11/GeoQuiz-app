@@ -24,7 +24,6 @@ class TablaRanking(context: Context) {
 }// TablaRanking
 
 class TaskTablaRanking: Application(){
-    private val rank: TablaRanking? = null
     //La clase application es la primera clase por la que pasa la app por
     //eso sirve para instanciar cosas que usaremos en varios sitios
     companion object {

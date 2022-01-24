@@ -2,6 +2,7 @@ package dev.JSalmon.geoquiz;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +25,9 @@ public class finDisplay extends AppCompatActivity {
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fin_display);
+
+        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.ganador);
+        mediaPlayer.start();
 
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
