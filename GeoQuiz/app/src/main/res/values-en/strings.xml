@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">GeoQuiz</string>
+    <string name="button_true">True</string>
+    <string name="button_false">False</string>
+    <string name="button_swipe">◄ Swipe for the next question</string>
+    <string name="button_ranking">RANKING</string>
+    <string name="correct_toast">CORRECT</string>
+    <string name="incorrect_tost">INCORRECT</string>
+    <string name="pregunta1">The Pacific Ocean is bigger than the Atlantic Ocean</string>
+    <string name="pregunta2">The Suez Canal connects the Red Sea with the Indian Ocean</string>
+    <string name="pregunta3">The Amazon River is the longest river in the American continent</string>
+    <string name="pregunta4">The Tagus River is the longest in the Iberian Peninsula</string>
+    <string name="string_puntos">Points: </string>
+    <string name="string_FIN">END: There are no more questions</string>
+    <string name="button_restart">RESTART</string>
+    <string name="warning_text">Are you sure you want to do that?</string>
+    <string name="show_answer_button">Answer</string>
+    <string name="cheat_button">Cheat!</string>
+    <string name="judgment_toast">Cheater</string>
+    <string name="finalPuntos">Final score: </string>
+    <string name="pregunta5">"China is the largest country in the world "</string>
+    <string name="pregunta6">The Vatican is the smallest country in the world</string>
+    <string name="pregunta7">Mount Teide is the highest mountain in the Iberian Peninsula</string>
+</resources>
